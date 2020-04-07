@@ -1,0 +1,22 @@
+{
+  "name": "syncservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EVNotify/SyncService.git"
+  },
+  "author": "GPlay97",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/EVNotify/SyncService/issues"
+  },
+  "homepage": "https://github.com/EVNotify/SyncService#readme"
+}
