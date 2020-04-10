@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/EVNotify/SyncService/issues"
   },
-  "homepage": "https://github.com/EVNotify/SyncService#readme"
+  "homepage": "https://github.com/EVNotify/SyncService#readme",
+  "dependencies": {
+    "@evnotify/middlewares": "^1.0.5",
+    "@evnotify/utils": "^1.0.2",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  }
 }
