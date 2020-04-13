@@ -21,7 +21,7 @@
   "homepage": "https://github.com/EVNotify/SyncService#readme",
   "dependencies": {
     "@evnotify/middlewares": "^1.0.5",
-    "@evnotify/utils": "^1.0.2",
+    "@evnotify/utils": "^1.0.4",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
