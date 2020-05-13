@@ -15,8 +15,8 @@ const submitData = asyncHandler(async(req, res, next) => {
     // sync to log?! trigger
     // update last sync
     res.json(await SyncModel.updateOne({
-        akey: req.params.akey
-    }, req.body));
+        akey: syncObj.akey
+    }, syncObj));
 });
 
 module.exports = {
