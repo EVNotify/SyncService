@@ -6,7 +6,7 @@ const LocationSchema = require('./Location');
 
 const options = {
     id: false,
-    collection: 'sync',
+    collection: 'history',
     timestamps: true,
     toObject: {
         getters: true
