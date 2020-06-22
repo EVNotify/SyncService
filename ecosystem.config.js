@@ -12,7 +12,8 @@ module.exports = {
         DB_PORT: '27017',
         DB_NAME: 'evnotify',
         AUTHORIZATION_SERVICE: 'http://localhost:3001/authorization',
-        AUTHENTICATION_SERVICE: 'http://localhost:3002/authentication'
+        AUTHENTICATION_SERVICE: 'http://localhost:3002/authentication',
+        LOG_SERVICE: 'http://localhost:3005/logs'
       }
     }]
   };
