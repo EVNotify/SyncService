@@ -4,6 +4,14 @@ const HistoryModel = require('../models/History');
 const SyncModel = require('../models/Sync');
 const errors = require('../errors.json');
 
+const getLatestSync = asyncHandler(async (req, res, next) => {
+    if (req.params.akey !== req.headers.akey) return next(errors.AKEY_MISMATCH);
+
+    res.json(await SyncModel.find({
+        akey: req.params.akey
+    }));
+});
+
 const submitData = asyncHandler(async(req, res, next) => {
     // TODO outsource this in @evnotify/utils?!
     if (req.params.akey !== req.headers.akey) return next(errors.AKEY_MISMATCH);
@@ -37,5 +45,6 @@ const submitData = asyncHandler(async(req, res, next) => {
 });
 
 module.exports = {
+    getLatestSync,
     submitData
 };
