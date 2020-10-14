@@ -7,9 +7,11 @@ const errors = require('../errors.json');
 const getLatestSync = asyncHandler(async (req, res, next) => {
     if (req.params.akey !== req.headers.akey) return next(errors.AKEY_MISMATCH);
 
-    res.json(await SyncModel.find({
+    const lastSync = await SyncModel.findOne({
         akey: req.params.akey
-    }));
+    });
+
+    res.json(lastSync || {});
 });
 
 const submitData = asyncHandler(async(req, res, next) => {
@@ -26,14 +28,17 @@ const submitData = asyncHandler(async(req, res, next) => {
     axios.post(process.env.LOG_SERVICE + '/latest', syncObj, {
         headers: {
             'Authorization': req.headers.authorization,
-            'Authentication': req.headers.authentication,
+            'Authentication': req.headers.token,
             'akey': syncObj.akey
         }
     }).then(async() => {
         // update last sync
-        res.json(await SyncModel.updateOne({
+        await SyncModel.updateOne({
             akey: syncObj.akey
-        }, syncObj));
+        }, syncObj, {
+            upsert: true
+        });
+        res.json(syncObj);
     }).catch((err) => {
         try {
             next(err.response.data.error || 500);
