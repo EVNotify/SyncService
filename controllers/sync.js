@@ -27,7 +27,7 @@ const submitData = asyncHandler(async(req, res, next) => {
         headers: {
             'Authorization': req.headers.authorization,
             'Authentication': req.headers.authentication,
-            'AKey': syncObj.akey
+            'akey': syncObj.akey
         }
     }).then(async() => {
         // update last sync
