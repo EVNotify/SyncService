@@ -25,10 +25,10 @@ const submitData = asyncHandler(async(req, res, next) => {
     await HistoryModel.create(syncObj);
 
     // push to log service
-    axios.post(process.env.LOG_SERVICE + '/latest', syncObj, {
+    axios.post(process.env.LOG_SERVICE + '/' + syncObj.akey + '/latest', syncObj, {
         headers: {
             'Authorization': req.headers.authorization,
-            'Authentication': req.headers.token,
+            'token': req.headers.token,
             'akey': syncObj.akey
         }
     }).then(async() => {
