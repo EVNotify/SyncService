@@ -9,7 +9,7 @@ const getLatestSync = asyncHandler(async (req, res, next) => {
 
     const lastSync = await SyncModel.findOne({
         akey: req.params.akey
-    });
+    }).select('-_id -createdAt -telemetry._id -telemetry.createdAt -location._id -location.createdAt');
 
     res.json(lastSync || {});
 });
@@ -19,6 +19,8 @@ const submitData = asyncHandler(async(req, res, next) => {
     if (req.params.akey !== req.headers.akey) return next(errors.AKEY_MISMATCH);
 
     const syncObj = req.body;
+
+    if (syncObj == null || (syncObj.telemetry == null && syncObj.location == null)) return next(errors.INVALID_SYNC_FORMAT);
 
     syncObj.akey = req.params.akey;
     // create a history record

@@ -26,5 +26,9 @@
     "AKEY_NOT_REGISTERED": {
         "code": 404,
         "message": "Provided AKey has not been registered"
-    }
+    },
+    "INVALID_SYNC_FORMAT": {
+        "code": 422,
+        "message": "Sync object is invalid. Ensure to provide telemetry object and its data and / or location object"
+    } 
 }
